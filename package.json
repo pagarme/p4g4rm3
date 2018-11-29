@@ -16,11 +16,13 @@
     "url": "https://github.com/pagarme/123456/issues"
   },
   "homepage": "https://github.com/pagarme/123456#readme",
+  "dependencies": {
+    "zxcvbn": "^4.4.2"
+  },
   "devDependencies": {
     "ava": "1.0.0-rc.2",
     "eslint": "^5.9.0",
     "eslint-config-pagarme-base": "2.0.0",
-    "eslint-plugin-import": "^2.14.0",
-    "zxcvbn": "^4.4.2"
+    "eslint-plugin-import": "^2.14.0"
   }
 }
