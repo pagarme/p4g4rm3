@@ -1,0 +1,26 @@
+{
+  "name": "123456",
+  "version": "0.0.1",
+  "description": "Validador de senha em nossos serviços",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pagarme/123456.git"
+  },
+  "author": "Pagar.me",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pagarme/123456/issues"
+  },
+  "homepage": "https://github.com/pagarme/123456#readme",
+  "devDependencies": {
+    "ava": "1.0.0-rc.2",
+    "eslint": "^5.9.0",
+    "eslint-config-pagarme-base": "2.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "zxcvbn": "^4.4.2"
+  }
+}
