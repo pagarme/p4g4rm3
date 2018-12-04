@@ -1,4 +1,5 @@
 const zxcvbn = require('zxcvbn')
+const commomPasswords = require('./commom-passwords.js')
 
 const calculatePasswordScore = password => zxcvbn(password)
 
@@ -18,8 +19,12 @@ const validateMaximumLength = (password) => {
   return false
 }
 
+const isCommomPassword = password => 
+  commomPasswords.some(item => (item === password))
+
 module.exports = {
   calculatePasswordScore,
   validateMinimumLength,
   validateMaximumLength,
+  isCommomPassword,
 }
