@@ -1,27 +1,36 @@
 const zxcvbn = require('zxcvbn')
-const commomPasswords = require('./commom-passwords.js')
+const commonPasswords = require('./common-passwords.js')
 
 const calculatePasswordScore = password => zxcvbn(password).score
 
-const validateMinimumLength = (password, length = 8) =>
+const hasMinimumLength = (password, length = 8) =>
   (password.length >= length)
 
-const validateMaximumLength = (password, length = 64) =>
+const hasMaximumLength = (password, length = 64) =>
   (password.length <= length)
 
-const isCommomPassword = password => commomPasswords.includes(password)
+const isCommonPassword = password => commonPasswords.includes(password)
 
-const validate = password => ({
-  validMinLength: validateMinimumLength(password),
-  validMaxLength: validateMaximumLength(password),
-  isCommomPassword: isCommomPassword(password),
-  score: calculatePasswordScore(password),
-})
+const validate = (password) => {
+  const errors = []
 
-module.exports = {
-  calculatePasswordScore,
-  validateMinimumLength,
-  validateMaximumLength,
-  isCommomPassword,
-  validate,
+  if (!hasMaximumLength(password)) {
+    errors.push('max_length')
+  }
+
+  if (!hasMinimumLength(password)) {
+    errors.push('min_length')
+  }
+
+  if (isCommonPassword(password)) {
+    errors.push('commom_password')
+  }
+
+  return {
+    isValid: (errors.length === 0),
+    errors,
+    score: calculatePasswordScore(password),
+  }
 }
+
+module.exports = { validate }
