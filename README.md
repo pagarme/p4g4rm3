@@ -29,7 +29,7 @@ A função retorna um objeto com algumas propriedades:
 {
   validMinLength: true,
   validMaxLength: true,
-  isCommomPassword: false,
+  isCommonPassword: false,
   score: 1,
 }
 ```
