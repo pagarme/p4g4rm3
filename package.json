@@ -1,10 +1,11 @@
 {
   "name": "p4g4rm3",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Validador de senha em nossos serviços",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "ava"
+    "build": "rm -Rf dist/*; env NODE_ENV=production babel src -d dist --source-maps",
+    "test": "ava --verbose"
   },
   "repository": {
     "type": "git",
@@ -20,9 +21,19 @@
     "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
-    "ava": "1.0.0-rc.2",
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-modules-commonjs": "^7.2.0",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/register": "^7.0.0",
+    "ava": "^1.0.1",
     "eslint": "^5.9.0",
     "eslint-config-pagarme-base": "2.0.0",
     "eslint-plugin-import": "^2.14.0"
+  },
+  "ava": {
+    "require": [
+      "@babel/register"
+    ]
   }
 }

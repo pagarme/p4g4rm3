@@ -1,12 +1,12 @@
 import test from 'ava'
-import p4g4rm3 from '../../.'
+import { validate } from '../../src'
 
 test('Validate a common password', (t) => {
-  const { errors } = p4g4rm3.validate('vjjykgdjzbp')
+  const { errors } = validate('vjjykgdjzbp')
   t.is(errors.includes('commom_password'), true)
 })
 
 test('Validate a uncommon password', (t) => {
-  const { errors } = p4g4rm3.validate('you wi!! never c@tch meeee333')
+  const { errors } = validate('you wi!! never c@tch meeee333')
   t.is(errors.includes('commom_password'), false)
 })
