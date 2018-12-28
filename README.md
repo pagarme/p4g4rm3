@@ -27,18 +27,16 @@ A função retorna um objeto com algumas propriedades:
 
 ```
 {
-  validMinLength: true,
-  validMaxLength: true,
-  isCommomPassword: false,
-  score: 1,
+  isValid: false|true,
+  errors: ['min_length', 'max_length', 'commom_password'],
+  score: 0|1|2|3|4
 }
 ```
 
 | Propriedade | Descrição |
 | -------- | -------- |
-| validMinLength     | Válida se a senha possui o número mínimo de carácteres     |
-| validMaxLength     | Válida se a senha está dentro do limite máximo de carácteres    |
-| isCommomPassword     | Válida se a senha está contida na lista de senhas comuns   |
+| isValid     | Verifica se o password não possui erros    |
+| errors     | Array contendo os erros detectados durante  a validação   |
 | score     | Retorna a pontuação calculada pela biblioteca [zxcvbn](https://github.com/dropbox/zxcvbn)
 
 
