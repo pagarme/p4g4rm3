@@ -1,5 +1,5 @@
-const zxcvbn = require('zxcvbn')
-const commonPasswords = require('./common-passwords.js')
+import zxcvbn from 'zxcvbn'
+import commonPasswords from './common-passwords'
 
 const calculatePasswordScore = password => zxcvbn(password).score
 
@@ -11,7 +11,7 @@ const hasMaximumLength = (password, length = 64) =>
 
 const isCommonPassword = password => commonPasswords.includes(password)
 
-const validate = (password) => {
+export const validate = (password) => { // eslint-disable-line import/prefer-default-export
   const errors = []
 
   if (!hasMaximumLength(password)) {
@@ -32,5 +32,3 @@ const validate = (password) => {
     score: calculatePasswordScore(password),
   }
 }
-
-module.exports = { validate }
