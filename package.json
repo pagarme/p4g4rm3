@@ -1,6 +1,6 @@
 {
   "name": "p4g4rm3",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Validador de senha em nossos serviços",
   "main": "dist/index.js",
   "scripts": {
