@@ -4,6 +4,7 @@
   "description": "Validador de senha em nossos serviços",
   "main": "dist/index.js",
   "scripts": {
+    "prepublish": "npm run build",
     "build": "rm -Rf dist/*; env NODE_ENV=production babel src -d dist --source-maps",
     "test": "ava --verbose"
   },
