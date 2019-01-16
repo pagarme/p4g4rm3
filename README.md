@@ -1,7 +1,7 @@
 <img src="https://avatars1.githubusercontent.com/u/3846050?v=4&s=200" width="127px" height="127px" align="left"/>
 
 # p4g4rm3
-[![CircleCI](https://circleci.com/gh/pagarme/p4g4rme.svg?style=shield)](https://circleci.com/gh/pagarme/p4g4rme)
+[![CircleCI](https://circleci.com/gh/pagarme/p4g4rm3.svg?style=shield)](https://circleci.com/gh/pagarme/p4g4rme)
 
 ## Como usar
 
