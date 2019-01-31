@@ -1,6 +1,6 @@
 {
   "name": "p4g4rm3",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Validador de senha em nossos serviços",
   "main": "dist/index.js",
   "scripts": {
@@ -21,6 +21,7 @@
   "dependencies": {
     "rollup": "^1.1.2",
     "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-uglify": "^6.0.2",
     "zxcvbn": "^4.4.2"
   },
@@ -32,7 +33,8 @@
     "ava": "^1.0.1",
     "eslint": "^5.9.0",
     "eslint-config-pagarme-base": "2.0.0",
-    "eslint-plugin-import": "^2.14.0"
+    "eslint-plugin-import": "^2.14.0",
+    "rollup-plugin-node-resolve": "^4.0.0"
   },
   "ava": {
     "require": [
