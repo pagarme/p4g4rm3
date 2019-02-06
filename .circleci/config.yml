@@ -17,6 +17,19 @@ jobs:
             - node_modules
       - run: npm test
 
+  sonarqube:
+    machine:
+      enabled: true
+    steps:
+      - checkout
+      - run:
+         name: Sonar Stuff
+         command: |
+           wget -c https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.2.0.1227-linux.zip
+           unzip sonar-scanner-cli-3.2.0.1227-linux.zip -d /tmp
+           PATH=$PATH:/tmp/sonar-scanner-3.2.0.1227-linux/bin
+           sonar-scanner -Dsonar.login=$SONARQUBE_TOKEN -Dsonar.projectKey=$SONARQUBE_PROJECTKEY -Dsonar.host.url=$SONARQUBE_URL -Dsonar.sources=. -X
+
 workflows:
   version: 2
   build:
@@ -25,3 +38,4 @@ workflows:
           filters:
             tags:
               only: /^v.*/
+      - sonarqube
