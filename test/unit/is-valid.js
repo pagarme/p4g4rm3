@@ -10,3 +10,8 @@ test('Validate a invalid password', (t) => {
   const { isValid } = validate('you wi!! never c@tch meeee333')
   t.is(isValid, true)
 })
+
+test('Validate a invalid undefined password', (t) => {
+  const { isValid } = validate(undefined)
+  t.is(isValid, false)
+})

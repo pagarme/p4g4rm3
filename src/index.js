@@ -1,13 +1,13 @@
 import zxcvbn from 'zxcvbn'
 import commonPasswords from './common-passwords'
 
-const calculatePasswordScore = password => zxcvbn(password).score
+const calculatePasswordScore = password => password && zxcvbn(password).score
 
 const hasMinimumLength = (password, length = 8) =>
-  (password.length >= length)
+  password && (password.length >= length)
 
 const hasMaximumLength = (password, length = 64) =>
-  (password.length <= length)
+  password && (password.length <= length)
 
 const isCommonPassword = password => commonPasswords.includes(password)
 
