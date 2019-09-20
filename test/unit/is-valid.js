@@ -12,6 +12,19 @@ test('Validate a invalid password', (t) => {
 })
 
 test('Validate a invalid undefined password', (t) => {
-  const { isValid } = validate(undefined)
+  const { isValid, score } = validate(undefined)
   t.is(isValid, false)
+  t.is(score, 0)
+})
+
+test('Validate a invalid object password', (t) => {
+  const { isValid, score } = validate({})
+  t.is(isValid, false)
+  t.is(score, 0)
+})
+
+test('Validate a invalid number password', (t) => {
+  const { isValid, score } = validate(123456789)
+  t.is(isValid, false)
+  t.is(score, 0)
 })

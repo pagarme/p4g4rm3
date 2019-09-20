@@ -1,7 +1,9 @@
 import zxcvbn from 'zxcvbn'
 import commonPasswords from './common-passwords'
 
-const calculatePasswordScore = password => password && zxcvbn(password).score
+const calculatePasswordScore = password => typeof password === 'string'
+  ? zxcvbn(password).score
+  : 0
 
 const hasMinimumLength = (password, length = 8) =>
   password && (password.length >= length)

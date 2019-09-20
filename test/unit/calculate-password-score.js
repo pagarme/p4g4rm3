@@ -25,3 +25,8 @@ test('Very unguessable password zxcvbn calculation', (t) => {
   const { score: scoreResult } = validate('He!! 0f A p@A55w0rd')
   t.is(scoreResult, 4)
 })
+
+test('Should return zero if provided with an empty password', (t) => {
+  const { score } = validate('')
+  t.is(score, 0)
+})
