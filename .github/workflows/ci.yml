@@ -1,0 +1,50 @@
+name: Build and Sonar
+
+on:
+  push:
+    branches:
+      - 'master'
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs: 
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    container:
+      image: node:8.9
+    steps:
+    -
+      name: Checkout Code
+      uses: actions/checkout@v3
+    - 
+      name: Restore Cache
+      uses: actions/cache@v3
+      with:
+        path: node_modules
+        key: v1-dependecies-${{ hashFiles('package-lock.json', 'package.json' ) }}
+    - 
+      name: Install dependecies 
+      run: npm install
+    -
+      name: Run Test
+      run: npm test
+
+  sonar:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    steps:
+    - 
+      name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    -
+      name: Run Sonar
+      uses: sonarsource/sonarcloud-github-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
